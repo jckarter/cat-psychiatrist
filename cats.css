@@ -1,0 +1,18 @@
+body {background-color:#fed; font-family:Helvetica, Verdana, sans-serif; font-size:20px; max-width:900px; margin:auto; line-height:125%;}
+#pictureform {position:relative; display:inline-block; border:1px solid black; text-align:center; background-color:#fff; color:#777;}
+#picturechoose {padding:0px 20px;}
+#picturecontent {display:none; z-index:1; padding:0; margin:0;}
+#pictureclear {position:absolute; top:5px; left:5px; z-index:2; background-color:#777; color:#fff; border:none; border-radius:100%; opacity:0.5; display:none; font-weight:bold;}
+#picturecontent:hover #pictureclear {display:block;}
+#pictureclear:active {background-color:#000;}
+#picturedisplay {display:block; margin:0; padding:0;}
+.errormessage {display:none; color:#f66;}
+.invalid + .errormessage {display:inline;}
+
+input[type=file] {border:1px solid #ddd; padding:2px;}
+input[type=text], input[type=button], select {border:1px solid black; font-family:Helvetica, Verdana, sans-serif; font-size:20px;}
+input[type=text] {background-color:#fff;}
+input[type=button] {background-color:#ddd;}
+input[type=button]:active {background-color:#777;}
+
+#evaluation {display:none; position:absolute; background-color:#fff; border:1px solid #777; z-index:100; width:750px; top:20px; left:50%; margin-left:-375px; min-height:100px; padding:10px; box-shadow:0px 20px 40px rgba(0,0,0,0.5);}
