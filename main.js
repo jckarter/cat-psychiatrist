@@ -95,6 +95,38 @@ function generateSeed() {
     return sha;
 }
 
+function submitQuestionnaire() {
+    var ok = true;
+    var fields = [E.catname, E.catgender, E.catbreed, E.catage];
+    for (var i in fields) {
+        var field = fields[i];
+        if (!field.value) {
+            ok = false;
+            field.className = 'invalid';
+        } else
+            field.className = '';
+    }
+
+    if (ok) {
+        E.submit.className = '';
+
+        var name = E.catname.value;
+        var gender = E.catgender.value;
+        var breed = E.catbreed.value;
+        var age = E.catage.value;
+
+        var seed = generateSeed(name, gender, breed, age);
+
+        evaluate(name, gender, seed);
+    } else {
+        E.submit.className = 'invalid';
+    }
+}
+
+function dismissReport() {
+    E.report.className = '';
+}
+
 function main() {
     getElements(
         'picturedragframe',
@@ -114,6 +146,7 @@ function main() {
         'reportpic',
         'reportname',
         'reportdate',
+        'reportdismiss',
         'recommendation');
 
     E.pictureform.addEventListener('submit', stopEvent);
@@ -131,33 +164,8 @@ function main() {
         chooseImageFiles(E.pictureupload.files);
     });
 
-    E.submit.addEventListener('click', function(){
-        var ok = true;
-        var fields = [E.catname, E.catgender, E.catbreed, E.catage];
-        for (var i in fields) {
-            var field = fields[i];
-            if (!field.value) {
-                ok = false;
-                field.className = 'invalid';
-            } else
-                field.className = '';
-        }
-
-        if (ok) {
-            E.submit.className = '';
-
-            var name = E.catname.value;
-            var gender = E.catgender.value;
-            var breed = E.catbreed.value;
-            var age = E.catage.value;
-
-            var seed = generateSeed(name, gender, breed, age);
-
-            evaluate(name, gender, seed);
-        } else {
-            E.submit.className = 'invalid';
-        }
-    });
+    E.submit.addEventListener('click', submitQuestionnaire);
+    E.reportdismiss.addEventListener('click', dismissReport);
 }
 
 document.addEventListener('DOMContentLoaded', main);

@@ -24,3 +24,4 @@ input[type=button]:active {background-color:#777;}
 #report hr { border:none; text-align:center; color:#777; word-spacing:0.15in; }
 #report hr:after { content:"\2699 \20 \2689 \20 \2699"; }
 #report.ready {opacity:1; display:block; -webkit-transform:none; -moz-transform:none; -ms-transform:none; -o-transform:none; transform:none;}
+#reportdismiss {position:absolute; top:100%; left:50%; width:100px; height:30px; margin-top:-15px; margin-left:-50px; border-radius:25px;}
