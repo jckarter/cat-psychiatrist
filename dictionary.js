@@ -13,6 +13,7 @@ window.Dictionary = {
         'content',
         'depressed',
         'moody',
+        'worried',
         'ineffable',
         'incorrigible'],
     subject: [
@@ -49,6 +50,11 @@ window.Dictionary = {
         'a dog',
         'a raccoon',
         'a crow'],
+    predators: [
+        'other cats',
+        'dogs',
+        'raccoons',
+        'crows'],
     place: [
         'in a couch',
         'in a chair',
@@ -64,7 +70,7 @@ window.Dictionary = {
         'loves',
         "doesn't enjoy",
         'abhors',
-        'wishes $xhe had'],
+        'dreams about'],
     stuff: [
         'dry food',
         'wet food',
@@ -77,16 +83,16 @@ window.Dictionary = {
         'cheese',
         'laser pointers',
         'feathers',
-        'toy $stuff',
         'scratching posts',
+        'litterboxes',
         'the outdoors'],
 
     trait: [
-        '$Xhe needs $drugs to get through the day.',
+        '$Xhe needs $drug to get through the day.',
         '$Xir favorite colors are $color and $color.',
         '$Xhe is quick to anger.',
         '$Xhe occasionally overindulges.'],
-    drugs: [
+    drug: [
         'catnip',
         'alcohol',
         'love'],
@@ -96,6 +102,22 @@ window.Dictionary = {
         'green',
         'purple',
         'indigo',
-        'teal']};
+        'teal'],
+    
+    recommendation: [
+        '$prescription $proscription'],
+    prescription: [
+        'Expose $Name to more $stuff in order to improve $xir $stat.'],
+    proscription: [
+        'Try to keep $Name away from $predators.',
+        "Limit $Name's exposure to $drug."],
+    stat: [
+        'constitution',
+        'digestion',
+        'behavior',
+        'attitude',
+        'charisma',
+        'dexterity',
+        'poison resistance']};
 
 })();

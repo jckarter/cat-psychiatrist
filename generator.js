@@ -20,7 +20,7 @@ function at(dicts, key) {
 
 function oneOf(vocab, prng) {
     var r = prng.next();
-    if (typeof vocab === 'string')
+    if (vocab === undefined || typeof vocab === 'string')
         return vocab;
     else
         return vocab[mod(r, vocab.length)];
@@ -28,23 +28,21 @@ function oneOf(vocab, prng) {
 
 function generate(vocab, dicts, prng) {
     var str = oneOf(vocab, prng);
-    console.log(str);
-    return str.replace(/\$([A-Za-z]+)/g, function(_, ckey) {
-        var key = ckey.toLowerCase();
-        var capitalize = key !== ckey;
-        var subvocab = at(dicts, key);
-        console.log('replace', key, capitalize, subvocab);
-        if (!subvocab)
-            return '<undefined ' + key + '>';
-        else {
-            var substr = generate(subvocab, dicts, prng);
-            console.log('with', substr);
-            if (capitalize)
-                return substr.charAt(0).toUpperCase() + substr.slice(1);
-            else
-                return substr;
-        }
-    });
+    if (str !== undefined)
+        return str.replace(/\$([A-Za-z]+)/g, function(_, ckey) {
+            var key = ckey.toLowerCase();
+            var capitalize = key !== ckey;
+            var subvocab = at(dicts, key);
+            if (!subvocab)
+                return '<undefined ' + key + '>';
+            else {
+                var substr = generate(subvocab, dicts, prng);
+                if (capitalize)
+                    return substr.charAt(0).toUpperCase() + substr.slice(1);
+                else
+                    return substr;
+            }
+        });
 }
 
 window.Generator = {

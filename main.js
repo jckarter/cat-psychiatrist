@@ -46,7 +46,7 @@ function forgetImage(resetFormp) {
 function evaluate(name, gender, seed) {
     var prng = new SHA256.PRNG(seed);
     var genderDict;
-    
+
     switch (gender) {
     case 'm':
         genderDict = {
@@ -70,12 +70,21 @@ function evaluate(name, gender, seed) {
             xim:'xer'};
         break;
     }
-    var script = Generator.generate(
-        Dictionary.evaluation,
-        [{name:name}, genderDict, Dictionary],
-        prng);
-    E.evaluation.textContent = script;
-    E.evaluation.style.display = 'block';
+
+    var dicts = [{name:name}, genderDict, Dictionary];
+
+    E.evaluation.textContent =
+        Generator.generate(Dictionary.evaluation, dicts, prng);
+    E.recommendation.textContent =
+        Generator.generate(Dictionary.recommendation, dicts, prng);
+
+    E.reportname.textContent = name;
+    E.reportdate.textContent = new Date().toLocaleDateString();
+    E.reportpic.src = E.picturedisplay.src;
+    E.reportpic.width = E.picturedisplay.width;
+    E.reportpic.height = E.picturedisplay.height;
+
+    E.report.className = 'ready';
     window.scrollTo(0, 0);
 }
 
@@ -100,7 +109,12 @@ function main() {
         'catgender',
         'catage',
         'submit',
-        'evaluation');
+        'evaluation',
+        'report',
+        'reportpic',
+        'reportname',
+        'reportdate',
+        'recommendation');
 
     E.pictureform.addEventListener('submit', stopEvent);
     E.pictureform.addEventListener('reset', function(){

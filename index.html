@@ -5,7 +5,20 @@
 <script src=generator.js></script>
 <script src=dictionary.js></script>
 <script src=main.js></script>
-<div id=evaluation></div>
+<div id=report>
+ <h1 id=reportheader>
+  <img id=reportpic src="" alt="[Picture]">
+  <span id=reportname></span>
+ </h1>
+ <h4>Evaluation</h4>
+ <p id=evaluation>
+ <h4>Recommendation</h4>
+ <p id=recommendation>
+ <hr>
+ <p>Evaluated <span id=reportdate></span> by Dr. Nigel Collins, D.V.Psy.
+ <img id=reportsig src=signature.png alt="[Signed by Dr. Collins]">
+</div>
+<div id=questionnaire>
 <p>Have you ever wondered what your cat is thinking? I, Dr. Nigel
 Collins, D.V.Psy., will use my proprietary algorithms to
 tell you! To get started, just fill out the following questionnaire.
@@ -35,8 +48,9 @@ to more accurate readings.
  </div>
  <div id=picturecontent>
   <input type=reset id=pictureclear value="&#xd7;">
-  <img id=picturedisplay src="" alt="Your Picture">
+  <img id=picturedisplay src="" alt="[Picture]">
  </div>
 </form>
 <p><input type=button id=submit value=Submit>
  <span class=errormessage>Some important values are missing.</span>
+</div>
